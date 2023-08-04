@@ -32,7 +32,7 @@ if (fs.existsSync("./sw.config.json")) {
         console.log("- \x1b[31mError:\x1b[0m Invalid configuration file!");
         process.exit();
     }
-} else if (process.argv.length > 2) {
+} else if (process.argv.length > 1) {
     args = process.argv;
 } else {
     args = ["node", "index.js"];
