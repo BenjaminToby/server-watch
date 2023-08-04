@@ -13,6 +13,12 @@ A feather-light package that watches and actively reloads node js server instanc
 To install this package run:
 
 ```bash
+npm install server-watch
+```
+
+To install globally run:
+
+```bash
 npm install -g server-watch
 ```
 
