@@ -29,7 +29,7 @@ There are two ways to run server-watch
 ### CLI run with arguments
 
 ```bash
-npx server-watch node index.js
+server-watch node index.js
 ```
 
 ### Setting up an `sw.config.json` file
@@ -37,7 +37,7 @@ npx server-watch node index.js
 If you add an `sw.config.json` to your root directory, you only need to run:
 
 ```bash
-npx server-watch
+server-watch
 ```
 
 Your configuration in your config file sets the required options for watching the server.

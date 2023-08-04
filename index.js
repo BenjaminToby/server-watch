@@ -4,6 +4,9 @@
 const fs = require("fs");
 const { spawn } = require("child_process");
 
+/**
+ * Start Process
+ */
 console.log("- \x1b[35mStart:\x1b[0m Server Starting ...");
 
 /**
