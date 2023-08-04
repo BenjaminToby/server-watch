@@ -1,0 +1,25 @@
+{
+    "name": "server-watch",
+    "version": "1.0.0",
+    "description": "A minimal package to watch less files and compile them to css",
+    "main": "index.js",
+    "bin": {
+        "server-watch": "./index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/BenjaminToby"
+    },
+    "keywords": [
+        "cli",
+        "watcher",
+        "monitor",
+        "development",
+        "autoreload",
+        "reload",
+        "terminal",
+        "server"
+    ],
+    "author": "Benjamin Toby",
+    "license": "ISC"
+}
