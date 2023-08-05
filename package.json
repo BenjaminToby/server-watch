@@ -1,10 +1,9 @@
 {
     "name": "server-watch",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "A minimal package to watch node js server files and restart the server when a file is changed",
-    "main": "index.js",
     "bin": {
-        "server-watch": "./index.js"
+        "server-watch": "./server-watch.js"
     },
     "repository": {
         "type": "git",

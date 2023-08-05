@@ -51,6 +51,8 @@ if (fs.existsSync("./sw.config.json")) {
     process.exit();
 }
 
+console.log(args);
+
 /**
  * Spawn a new child process
  * @param {string[]} args - Arguments to pass to the child process
