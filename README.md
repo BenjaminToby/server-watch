@@ -16,14 +16,28 @@ To install this package run:
 npm install -g server-watch
 ```
 
+To install this package on a per-project basis run:
+
+```bash
+npm install server-watch
+```
+
 ## How to use
 
 There are two ways to run server-watch
 
 ### CLI run with arguments
 
+If you installed the package globally, just run:
+
 ```bash
-server-watch node index.js
+server-watch index.js
+```
+
+If you installed the package for just a specific project, then you need to append the `npx` command to it. Like this:
+
+```bash
+npx server-watch index.js
 ```
 
 ### Setting up an `sw.config.json` file

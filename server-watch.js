@@ -7,13 +7,14 @@ const { spawn } = require("child_process");
 /**
  * Start Process
  */
-console.log("- \x1b[35mStart:\x1b[0m Server Starting ...");
+console.log("- \x1b[35mStart:\x1b[0m Process Starting ...");
 
 /**
  * Initialize arguments
  */
 let args = [],
-    ignore = [];
+    ignore = [],
+    targetFile;
 
 /**
  * Check configurations
@@ -32,8 +33,11 @@ if (fs.existsSync("./sw.config.json")) {
         console.log("- \x1b[31mError:\x1b[0m Invalid configuration file!");
         process.exit();
     }
-} else if (process.argv.length > 1) {
+} else if (process.argv.length == 3) {
     args = process.argv;
+} else if (process.argv.length == 3) {
+    console.log(process.cwd(), process.argv[1], process.argv[2]);
+    args = process.argv.slice(1);
 } else if (fs.existsSync("./index.js")) {
     args = ["node", "index.js"];
 } else {
@@ -41,12 +45,13 @@ if (fs.existsSync("./sw.config.json")) {
     process.exit();
 }
 
+targetFile = args.at(-1);
+
 /**
  * Spawn a new child process
- * @param {string[]} args - Arguments to pass to the child process
  */
-function child(args) {
-    const watcher = spawn(args[0], args.slice(1), {
+function child() {
+    const watcher = spawn("node", [targetFile], {
         cwd: process.cwd(),
         stdio: "inherit",
     });
@@ -59,7 +64,7 @@ function child(args) {
 }
 
 /** @type {import("child_process").ChildProcess} */
-let watcher = child(args);
+let watcher = child();
 
 /**
  * Watch for file changes
@@ -77,6 +82,6 @@ fs.watch(process.cwd(), { recursive: true }, (evtType, filename) => {
 
     if (kill) {
         console.log("- \x1b[32mSuccess:\x1b[0m Server reloaded Successfully!");
-        watcher = child(args);
+        watcher = child();
     }
 });
