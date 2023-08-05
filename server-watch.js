@@ -2,7 +2,6 @@
 // @ts-check
 
 const fs = require("fs");
-const path = require("path");
 const { spawn } = require("child_process");
 
 /**
@@ -15,8 +14,6 @@ console.log("- \x1b[35mStart:\x1b[0m Server Starting ...");
  */
 let args = [],
     ignore = [];
-
-const cwd = process.cwd();
 
 /**
  * Check configurations
@@ -36,13 +33,6 @@ if (fs.existsSync("./sw.config.json")) {
         process.exit();
     }
 } else if (process.argv.length > 1) {
-    const resolvedPath = path.resolve(cwd, process.argv[1]);
-
-    if (!resolvedPath.includes(cwd)) {
-        console.log("- \x1b[31mError:\x1b[0m The file you're trying to run is not in the current directory!");
-        process.exit();
-    }
-
     args = process.argv;
 } else if (fs.existsSync("./index.js")) {
     args = ["node", "index.js"];
@@ -50,8 +40,6 @@ if (fs.existsSync("./sw.config.json")) {
     console.log("- \x1b[31mError:\x1b[0m Please enter the required arguments to run!");
     process.exit();
 }
-
-console.log(args);
 
 /**
  * Spawn a new child process
