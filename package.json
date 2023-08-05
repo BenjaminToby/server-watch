@@ -1,7 +1,8 @@
 {
     "name": "server-watch",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "description": "A minimal package to watch node js server files and restart the server when a file is changed",
+    "main": "server-watch.js",
     "bin": {
         "server-watch": "./server-watch.js"
     },
