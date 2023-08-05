@@ -47,6 +47,11 @@ if (fs.existsSync("./sw.config.json")) {
 
 targetFile = args.at(-1);
 
+if (!targetFile?.match(/./)) {
+    console.log("- \x1b[31mError:\x1b[0m Please specify a target file to execute!");
+    process.exit();
+}
+
 /**
  * Spawn a new child process
  */
